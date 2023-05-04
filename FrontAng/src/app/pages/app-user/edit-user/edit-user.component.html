@@ -1,0 +1,70 @@
+<!-- à terminer -->
+
+<div *ngIf="editValue">
+    <h3 pageTitle>Edition de l'utilisateur : {{editValue.firstName}}</h3>
+    <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+
+    <form #formModel="ngForm" (ngSubmit)="updateUser()">
+        <div class="form-group">
+            <label>{{titreModel.name | titlecase}}</label>
+            <!-- [(ngModel)] : syntaxe qui permet la liaison dans les deux sens-->
+            <input class="form-control" #titreModel="ngModel" type="text" [(ngModel)]="editValue.lastName" name="nom"
+                required maxlength="50" minlength="2" pattern="[A-Z].*">
+
+            <!-- <validation-message class="invalid-feedback" [model]="titreModel"
+                    patternMessage="Le {0} doit commencer par une majuscule"></validation-message> -->
+        </div>
+        <div class="form-group">
+            <label>{{firstNameModel.name | titlecase}}</label>
+            <!-- [(ngModel)] : syntaxe qui permet la liaison dans les deux sens-->
+            <input class="form-control" #firstNameModel="ngModel" type="text" [(ngModel)]="editValue.firstName" name="prénom"
+                required maxlength="50" minlength="2" pattern="[A-Z].*">
+
+            <!-- <validation-message class="invalid-feedback" [model]="titreModel"
+                    patternMessage="Le {0} doit commencer par une majuscule"></validation-message> -->
+        </div>
+
+
+        <div class="form-group">
+            <label>{{CityModel.name | titlecase}}</label>
+            <!-- [(ngModel)] : syntaxe qui permet la liaison dans les deux sens-->
+            <input class="form-control" #CityModel="ngModel" type="text" [(ngModel)]="editValue.city"
+                name="Ville">
+            <!-- <validation-message class="invalid-feedback" [model]="dateSortieModel"></validation-message> -->
+        </div>
+
+        <div class="form-group">
+            <label>{{phoneNumberModel.name | titlecase}}</label>
+            <!-- [(ngModel)] : syntaxe qui permet la liaison dans les deux sens-->
+            <input class="form-control" #phoneNumberModel="ngModel" type="text" [(ngModel)]="editValue.phoneNumber"
+                name="Numéro de téléphone">
+            <!-- <validation-message class="invalid-feedback" [model]="dateSortieModel"></validation-message> -->
+        </div>
+
+
+       
+        <!-- <div class="form-group">
+                <label>{{photoUrlModel.name | titlecase}}</label>
+                <input class="form-control" #photoUrlModel="ngModel" type="text" [(ngModel)]="editValue.photoUrl" name="photos url">
+            </div> -->
+
+        <button class="btn btn-warning">Modifier</button>
+        <!-- [disabled]="formModel.invalid || formModel.pristine" -->
+    </form>
+
+
+
+    <!-- <form method="post" ngNoForm  enctype="multipart/form-data" action="http://localhost:5088/api/Object/{{idObject}}/Photo" >
+        <div class="form-group">
+            <label >Affiche</label>
+            <input name="files" type="file" class="form-control">
+        </div>
+        <div class="form-group">
+            <label >Commentaire</label>
+            <input name="commentaire" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-warning">Envoyer</button>
+        </div>
+    </form> -->
+</div>

@@ -1,0 +1,14 @@
+<h3>Liste des objets</h3>
+<div class="input-group mb-3">
+    <button class="btn btn-outline-primary" (click)="rechercher(searchText.value)">Rechercher</button>
+    <input type="text" class="form-control" #searchText placeholder="Entrez votre recherche ici">
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-secondary" routerLink="/create-object">Ajout d'un nouvel objet</button>
+</div>
+
+
+<app-list-search-result *ngIf="results" (searchResultClick)="showObject($event)" [searchResults]="results">
+
+</app-list-search-result>
